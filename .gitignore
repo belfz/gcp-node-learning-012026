@@ -112,3 +112,27 @@ dist
 
 # Mac OS
 .DS_Store
+
+# Local .terraform directories (Plugins & binaries)
+**/.terraform/*
+
+# .tfstate files (NEVER commit these, they contain secrets!)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Exclude sensitive vars files (if you use them locally)
+*.tfvars
+
+# Ignore override files as they are usually used for local customizations
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# BUT... DO commit this lock file!
+# It ensures your team uses the exact same provider versions.
+!/.terraform.lock.hcl
+terraform/gcp-key.json
