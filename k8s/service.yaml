@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: node-app-service
+  annotations:
+    # This creates a "Network Endpoint Group" (NEG).
+    # It allows the Load Balancer to talk DIRECTLY to Pod IPs (faster, native GCP performance).
+    cloud.google.com/neg: '{"ingress": true}'
 spec:
-  type: ClusterIP # Internal only. Not reachable from the internet.
+  type: ClusterIP # We revert to ClusterIP, but the NEG annotation makes it visible to Ingress
   selector:
-    app: node-app # Finds pods with this label
+    app: node-app
   ports:
     - protocol: TCP
-      port: 80 # The port the Service listens on (internal DNS)
-      targetPort: 3000 # The port your Node.js app is actually running on
+      port: 80
+      targetPort: 3000

@@ -1,0 +1,8 @@
+Quiz answers:
+1. Still one load balancer, I guess?
+2. LB -> Node -> Pod
+3. Google is spinning up an infrastructur behind the scenes.
+
+Some questions first: I used a bunch of `kubectl ...` commands so far. In the "enterprise" environment, should I be doing these manually, or should some automation run these? Or maybe terraform should be responsible for that? Or something else?
+
+DON'T START THE NEXT LESSON YET!
