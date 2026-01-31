@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+  labels:
+    app: node-app
+spec:
+  replicas: 2
+  # The Selector is CRITICAL. It tells the Deployment which Pods belong to it.
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app # This MUST match the selector above
+    spec:
+      containers:
+        - name: node-app-container
+          # REPLACE [PROJECT_ID] with your actual project ID
+          image: us-central1-docker.pkg.dev/learning-012026/node-app-repo/my-node-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          # Senior Dev Detail: Health Checks
+          # K8s won't send traffic until this passes.
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          # K8s will restart the pod if this fails.
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
