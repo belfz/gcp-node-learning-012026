@@ -2,7 +2,7 @@ import fastify from 'fastify';
 const app = fastify({ logger: true });
 
 app.get('/', async (request, reply) => {
-  return { hello: 'GCP World', timestamp: new Date() };
+  return { hello: 'ELUWINA', timestamp: new Date() };
 });
 
 const start = async () => {
