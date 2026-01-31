@@ -1,0 +1,11 @@
+Quiz answers:
+1. I don't know, you didn't explain it. But I guess it's because "default" config comes with some assumptions which we don't want in production.
+2. Because we're not losing anything in case these nodes go down (assuming these are stateless).
+3. I guess GCP created those by default.
+
+First, give me the feedback on my answers.
+
+Second, give me a summary of what've done so far. Tell me like if you were my colleague (software engineer).
+I need this to be a "story" with brief explanations of each major step. Analogies are welcome.
+
+And remember: DON'T start the next lesson yet!
